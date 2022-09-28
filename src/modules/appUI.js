@@ -3,6 +3,7 @@ export default class AppUi {
     if (completed) {
       return 'checked';
     }
+    return '';
   };
 
   static addTask = (task, container) => {
@@ -10,8 +11,8 @@ export default class AppUi {
       <li class="list_todo-item flex justify-between align-center border p">
         <div>
           <input type="checkbox" name="completed" id="completed" ${AppUi.#checkedtask(
-            task.completed
-          )}/>
+      task.completed,
+    )}/>
           <span class="description ms ${AppUi.#checkedtask(task.completed)}">${
       task.description
     }</span>

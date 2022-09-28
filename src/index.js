@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import addTasks from './modules/base';
 import './style.css';
 
