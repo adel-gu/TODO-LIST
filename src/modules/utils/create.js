@@ -49,4 +49,12 @@ export default class Create {
     Create.#taskToUi(task, container);
     Create.#taskToStorage(task);
   };
+
+  // Create tasks when page is loaded
+  static tasks = (container) => {
+    const tasks = Read.getTasks();
+    tasks.forEach((task) => {
+      Create.#taskToUi(task, container);
+    });
+  };
 }
