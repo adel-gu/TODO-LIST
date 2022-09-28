@@ -1,3 +1,103 @@
+/* Reset */
+html {
+  height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: bisque;
+  background: #f6f6f6;
+  display: grid;
+  place-content: center;
+  min-height: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Utilities */
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.border {
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.border-none {
+  border: none;
+}
+
+.p {
+  padding: 1em;
+}
+
+.pe {
+  padding-right: 1em;
+}
+
+.ms {
+  margin-left: 0.25em;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* Main Styling */
+.todo-app {
+  width: 600px;
+  max-width: 60%;
+  margin-inline: auto;
+  background: #fff;
+  box-shadow: 10px 15px 16px -10px rgba(185, 185, 185, 0.5);
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+/* Buttons */
+.btn {
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding-inline: 5px;
+}
+
+.clear {
+  font-size: 1rem;
+  font-weight: normal;
+  width: 100%;
+  border: none;
+  background: #f6f6f6;
+}
+
+/* Interactions */
+.btn:hover {
+  cursor: pointer;
+}
+
+.clear:hover {
+  text-decoration: underline;
+}
+
+.border-none:active,
+.border-none:focus {
+  outline: none;
 }

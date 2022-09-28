@@ -1,12 +1,5 @@
-import _ from 'lodash';
+import addTasks from './modules/base';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+const todoList = document.querySelector('.todo_body_list');
+addTasks(todoList);
