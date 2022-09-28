@@ -67,6 +67,10 @@ ul {
   box-shadow: 10px 15px 16px -10px rgba(185, 185, 185, 0.5);
 }
 
+.checked {
+  text-decoration: line-through;
+}
+
 /* Buttons */
 .btn {
   height: fit-content;
