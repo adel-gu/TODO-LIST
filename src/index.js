@@ -1,5 +1,8 @@
-import addTasks from './modules/base';
+import { createTask } from './modules/base';
 import './style.css';
 
 const todoList = document.querySelector('.todo_body_list');
-addTasks(todoList);
+const form = document.forms[0];
+const task = form.task;
+console.log(task);
+createTask(task, todoList, form);
