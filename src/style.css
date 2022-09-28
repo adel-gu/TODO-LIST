@@ -73,12 +73,16 @@ ul {
 
 /* Buttons */
 .btn {
-  height: fit-content;
+  font-size: 1.5rem;
+  font-weight: 500;
   background: none;
   border: none;
   padding-inline: 5px;
 }
+
 .clear {
+  font-size: 1rem;
+  font-weight: normal;
   width: 100%;
   border: none;
   background: #f6f6f6;
