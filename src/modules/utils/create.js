@@ -2,30 +2,36 @@ import Read from './read';
 
 export default class Create {
   // Check for cheked task
-  static #checkedtask(completed) {
+  static #checkedtask = (completed) => {
     if (completed) {
       return 'checked';
     }
     return '';
-  }
+  };
 
   // add task to UI
   static #taskToUi = (task, container) => {
     const taskTemplate = `
-    <li class="list_todo-item flex justify-between align-center border p">
+    <li class="list_todo-item flex justify-between align-center border p" data-index="${
+      task.index
+    }">
       <div>
         <input type="checkbox" name="completed" id="completed" ${Create.#checkedtask(
           task.completed
         )}/>
-        <span class="description ms ${Create.#checkedtask(task.completed)}">${
-      task.description
-    }</span>
+        <span class="description ms ${Create.#checkedtask(task.completed)}">
+          ${task.description}
+        </span>
       </div>
       <div class="item-icons flex align-center">
-        <button class="btn">&#x1F5D1;</button>
-        <button class="btn">&#x22EE;</button>
+        <button class="btn drag" data-index="${task.index}">
+          &#x22EE;
+        </button>
+        <button class="btn delete-btn hide" data-index="${task.index}">
+          &#x1F5D1;
+        </button>
       </div>
-  </li>
+    </li>
   `;
 
     container.innerHTML += taskTemplate;

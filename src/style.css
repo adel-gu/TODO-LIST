@@ -58,6 +58,10 @@ ul {
   width: 100%;
 }
 
+.hide {
+  display: none;
+}
+
 /* Main Styling */
 .todo-app {
   width: 600px;
@@ -86,6 +90,10 @@ ul {
   width: 100%;
   border: none;
   background: #f6f6f6;
+}
+
+.delet-btn {
+  border: 1px solid red;
 }
 
 /* Interactions */
