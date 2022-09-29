@@ -21,7 +21,7 @@ const deleteTask = (container) => {
     if (e.target.classList.contains('delete-btn')) {
       const deleteBtn = e.target;
       const task = container.querySelector(
-        `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`
+        `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`,
       );
       Delete.task(task);
     }
@@ -55,4 +55,6 @@ const loadTasks = (container) => {
   });
 };
 
-export { createTask, deleteTask, editTask, loadTasks };
+export {
+  createTask, deleteTask, editTask, loadTasks,
+};

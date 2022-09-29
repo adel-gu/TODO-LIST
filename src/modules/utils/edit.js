@@ -5,7 +5,7 @@ export default class Edit {
   static #storage(task, taskDescription) {
     const tasks = Read.getTasks();
     tasks.forEach((todoTask, index) => {
-      if (index === parseInt(task.getAttribute('data-index')) - 1) {
+      if (index === parseInt(task.getAttribute('data-index') - 1, 10)) {
         tasks[index].description = taskDescription.value;
       }
     });

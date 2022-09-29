@@ -8,16 +8,15 @@ export default class Delete {
 
   // Delete from localStorage
   static #fromStorage = (task) => {
-    const tasks = Read.getTasks().filter((toDoTask) => {
-      if (toDoTask.index !== parseInt(task.getAttribute('data-index'))) {
-        return task;
-      }
-    });
+    let tasks = Read.getTasks();
+    tasks = tasks.filter(
+      (toDoTask) => toDoTask.index !== parseInt(task.getAttribute('data-index'), 10),
+    );
     Read.setTasks(tasks);
   };
 
   // Edit task index
-  static #updateIndex() {
+  static #updateIndex = () => {
     const tasks = Read.getTasks();
     let counter = 1;
     tasks.forEach((task) => {
@@ -26,12 +25,12 @@ export default class Delete {
     });
 
     Read.setTasks(tasks);
-  }
+  };
 
   // get the elements , search for index, delete it.
-  static task(task) {
+  static task = (task) => {
     Delete.#fromStorage(task);
     Delete.#fromUi(task);
     Delete.#updateIndex();
-  }
+  };
 }

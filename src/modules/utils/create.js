@@ -17,8 +17,8 @@ export default class Create {
     }">
       <div class="flex align-center grow-2">
         <input type="checkbox" name="check" id="check" ${Create.#checkedtask(
-          task.completed
-        )} />
+      task.completed,
+    )} />
         <div class="pos-r w-100">
           <input type="text" 
             value="${task.description}" 
