@@ -20,7 +20,7 @@
 - `stylelint`
 
 ## Live Demo (if available)
-[Experience a live Demo 🚀](https://adel-gu.github.io/TODO-LIST/)
+[Experience a live Demo 🚀](https://adel-gu.github.io/TODO-LIST/dist/)
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
