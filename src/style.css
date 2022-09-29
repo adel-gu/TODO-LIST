@@ -57,6 +57,7 @@ ul {
 .pe {
   padding-right: 1em;
 }
+
 .px {
   padding-inline: 1em;
 }
@@ -93,9 +94,11 @@ ul {
 .checked {
   text-decoration: line-through;
 }
+
 .bg {
   background: #fffeca;
 }
+
 .task-description {
   background: none;
   border: none;
