@@ -34,6 +34,14 @@ ul {
   align-items: center;
 }
 
+.grow-1 {
+  flex-grow: 0;
+}
+
+.grow-2 {
+  flex-grow: 1;
+}
+
 .border {
   border-bottom: 1px solid #f6f6f6;
 }
@@ -50,12 +58,28 @@ ul {
   padding-right: 1em;
 }
 
+.px {
+  padding-inline: 1em;
+}
+
 .ms {
   margin-left: 0.25em;
 }
 
 .w-100 {
   width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.pos-r {
+  position: relative;
+}
+
+.pos-a {
+  position: absolute;
 }
 
 /* Main Styling */
@@ -69,6 +93,15 @@ ul {
 
 .checked {
   text-decoration: line-through;
+}
+
+.bg {
+  background: #fffeca;
+}
+
+.task-description {
+  background: none;
+  border: none;
 }
 
 /* Buttons */
@@ -99,5 +132,9 @@ ul {
 
 .border-none:active,
 .border-none:focus {
+  outline: none;
+}
+
+.task-description:focus {
   outline: none;
 }
