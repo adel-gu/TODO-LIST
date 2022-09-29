@@ -16,9 +16,22 @@ export default class Delete {
     Read.setTasks(tasks);
   };
 
+  // Edit task index
+  static #updateIndex() {
+    const tasks = Read.getTasks();
+    let counter = 1;
+    tasks.forEach((task) => {
+      task.index = counter;
+      counter += 1;
+    });
+
+    Read.setTasks(tasks);
+  }
+
   // get the elements , search for index, delete it.
   static task(task) {
     Delete.#fromStorage(task);
     Delete.#fromUi(task);
+    Delete.#updateIndex();
   }
 }
