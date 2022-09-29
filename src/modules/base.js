@@ -1,5 +1,6 @@
 import Create from './utils/create';
 import Delete from './utils/delete';
+import Edit from './utils/edit';
 
 // Clear flieds
 const formClear = (task) => {
@@ -27,6 +28,26 @@ const deleteTask = (container) => {
   });
 };
 
+// Edit Task
+const editTask = (container) => {
+  // Add background color
+  container.addEventListener('click', (e) => {
+    if (e.target.classList.contains('task-description')) {
+      const task = e.target.parentElement.parentElement.parentElement;
+      task.classList.add('bg');
+    }
+  });
+  // console.log(container);
+  container.addEventListener('focusout', (e) => {
+    if (e.target.classList.contains('task-description')) {
+      const taskDescription = e.target;
+      const task = taskDescription.parentElement.parentElement.parentElement;
+      Edit.task(task, taskDescription);
+      task.classList.remove('bg');
+    }
+  });
+};
+
 const loadTasks = (container) => {
   // when page loaded add tasks to UI.
   document.addEventListener('DOMContentLoaded', () => {
@@ -34,4 +55,4 @@ const loadTasks = (container) => {
   });
 };
 
-export { createTask, deleteTask, loadTasks };
+export { createTask, deleteTask, editTask, loadTasks };

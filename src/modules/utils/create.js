@@ -12,22 +12,27 @@ export default class Create {
   // add task to UI
   static #taskToUi = (task, container) => {
     const taskTemplate = `
-    <li class="list_todo-item flex justify-between align-center border p" data-index="${
+    <li class="list_todo-item flex justify-between align-center border px shine" data-index="${
       task.index
     }">
-      <div>
-        <input type="checkbox" name="completed" id="completed" ${Create.#checkedtask(
+      <div class="flex align-center grow-2">
+        <input type="checkbox" name="check" id="check" ${Create.#checkedtask(
           task.completed
-        )}/>
-        <span class="description ms ${Create.#checkedtask(task.completed)}">
-          ${task.description}
-        </span>
+        )} />
+        <div class="pos-r w-100">
+          <input type="text" 
+            value="${task.description}" 
+            class="task-description 
+                  ${Create.#checkedtask(task.completed)} 
+                  w-100 p shine" contenteditable="true" 
+          />
+        </div>
       </div>
-      <div class="item-icons flex align-center">
-        <button class="btn drag" data-index="${task.index}">
+      <div class="item-icons flex align-center grow-1">
+        <button class="btn drag hide" data-index="${task.index}">
           &#x22EE;
         </button>
-        <button class="btn delete-btn hide" data-index="${task.index}">
+        <button class="btn delete-btn" data-index="${task.index}">
           &#x1F5D1;
         </button>
       </div>
