@@ -2,11 +2,13 @@ import Read from './read';
 
 export default class Check {
   // Check the task on the Ui
-  static #forUi = (check, taskDes) => {
+  static #forUi = (task, check, taskDes) => {
     if (check) {
       taskDes.classList.add('checked');
+      task.classList.add('checked-item');
     } else {
       taskDes.classList.remove('checked');
+      task.classList.remove('checked-item');
     }
   };
 
@@ -22,7 +24,7 @@ export default class Check {
   };
 
   static task = (task, check, taskDes) => {
-    Check.#forUi(check, taskDes);
+    Check.#forUi(task, check, taskDes);
     Check.#forStorage(task, check);
   };
 }

@@ -62,10 +62,27 @@ const editTask = (container) => {
 const checkTask = (container) => {
   container.addEventListener('change', (e) => {
     const check = e.target;
-    const checkBool = check.checked;
-    const task = check.parentElement.parentElement;
-    const taskDes = task.querySelector('.task-description');
-    Check.task(task, checkBool, taskDes);
+    if (check.getAttribute('type') === 'checkbox') {
+      const checkBool = check.checked;
+      const task = check.parentElement.parentElement;
+      const taskDes = task.querySelector('.task-description');
+      Check.task(task, checkBool, taskDes);
+    }
+  });
+};
+
+// Check if task is comleted
+const clearTask = (container, btn) => {
+  btn.addEventListener('click', (e) => {
+    const checkedTasks = container.getElementsByClassName('checked-item');
+    [...checkedTasks].forEach((task) => {
+      Delete.task(task);
+    });
+    // Update tasks Indexes
+    const tasks = document.getElementsByClassName('list_todo-item');
+    const toolBtns = container.getElementsByClassName('delete-btn');
+    Delete.updateIndexes(tasks);
+    Delete.updateIndexes(toolBtns);
   });
 };
 
@@ -76,4 +93,4 @@ const loadTasks = (container) => {
   });
 };
 
-export { createTask, deleteTask, editTask, checkTask, loadTasks };
+export { createTask, deleteTask, editTask, checkTask, clearTask, loadTasks };
