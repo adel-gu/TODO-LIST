@@ -11,7 +11,9 @@ const createTask = (task, container, form) => {
   // when addBtn pressed add task to UI and LocalStorage.
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    Create.task(task.value, container);
+    if (task.value !== '') {
+      Create.task(task.value, container);
+    }
     formClear(task);
   });
 };
@@ -21,7 +23,7 @@ const deleteTask = (container) => {
     if (e.target.classList.contains('delete-btn')) {
       const deleteBtn = e.target;
       const task = container.querySelector(
-        `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`,
+        `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`
       );
       Delete.task(task);
     }
@@ -55,6 +57,4 @@ const loadTasks = (container) => {
   });
 };
 
-export {
-  createTask, deleteTask, editTask, loadTasks,
-};
+export { createTask, deleteTask, editTask, loadTasks };
