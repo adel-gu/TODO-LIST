@@ -10,8 +10,7 @@ export default class Delete {
   static #fromStorage = (task) => {
     let tasks = Read.getTasks();
     tasks = tasks.filter(
-      (toDoTask) =>
-        toDoTask.index !== parseInt(task.getAttribute('data-index'), 10)
+      (toDoTask) => toDoTask.index !== parseInt(task.getAttribute('data-index'), 10),
     );
     Read.setTasks(tasks);
   };

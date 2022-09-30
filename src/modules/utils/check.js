@@ -14,7 +14,7 @@ export default class Check {
 
   // check the task on the local storage
   static #forStorage = (task, check) => {
-    let tasks = Read.getTasks();
+    const tasks = Read.getTasks();
     tasks.forEach((toDoTask) => {
       if (toDoTask.index === parseInt(task.getAttribute('data-index'), 10)) {
         toDoTask.completed = check;

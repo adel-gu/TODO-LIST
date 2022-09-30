@@ -24,7 +24,7 @@ const deleteTask = (container) => {
     if (e.target.classList.contains('delete-btn')) {
       const deleteBtn = e.target;
       const task = container.querySelector(
-        `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`
+        `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`,
       );
       Delete.task(task);
 
@@ -73,7 +73,7 @@ const checkTask = (container) => {
 
 // Check if task is comleted
 const clearTask = (container, btn) => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', () => {
     const checkedTasks = container.getElementsByClassName('checked-item');
     [...checkedTasks].forEach((task) => {
       Delete.task(task);
@@ -93,4 +93,6 @@ const loadTasks = (container) => {
   });
 };
 
-export { createTask, deleteTask, editTask, checkTask, clearTask, loadTasks };
+export {
+  createTask, deleteTask, editTask, checkTask, clearTask, loadTasks,
+};
