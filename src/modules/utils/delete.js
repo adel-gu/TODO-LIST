@@ -15,8 +15,18 @@ export default class Delete {
     Read.setTasks(tasks);
   };
 
-  // Edit task index
-  static #updateIndex = () => {
+  // Update task index in the UI
+  static #updateUiIndex = (elements) => {
+    // Getting the tasks index's
+    let counter = 1;
+    [...elements].forEach((element) => {
+      element.setAttribute('data-index', `${counter}`);
+      counter += 1;
+    });
+  };
+
+  // Edit task index in local storage
+  static #updateStorageIndex = () => {
     const tasks = Read.getTasks();
     let counter = 1;
     tasks.forEach((task) => {
@@ -31,6 +41,10 @@ export default class Delete {
   static task = (task) => {
     Delete.#fromStorage(task);
     Delete.#fromUi(task);
-    Delete.#updateIndex();
+  };
+
+  static updateIndexes = (elements) => {
+    Delete.#updateUiIndex(elements);
+    Delete.#updateStorageIndex();
   };
 }

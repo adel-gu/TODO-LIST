@@ -1,6 +1,7 @@
 import Create from './utils/create';
 import Delete from './utils/delete';
 import Edit from './utils/edit';
+import Check from './utils/check';
 
 // Clear flieds
 const formClear = (task) => {
@@ -11,7 +12,9 @@ const createTask = (task, container, form) => {
   // when addBtn pressed add task to UI and LocalStorage.
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    Create.task(task.value, container);
+    if (task.value !== '') {
+      Create.task(task.value, container);
+    }
     formClear(task);
   });
 };
@@ -24,6 +27,13 @@ const deleteTask = (container) => {
         `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`,
       );
       Delete.task(task);
+
+      // Get the rest task Index's
+      const tasks = document.getElementsByClassName('list_todo-item');
+      const toolBtns = document.getElementsByClassName('delete-btn');
+
+      Delete.updateIndexes(tasks);
+      Delete.updateIndexes(toolBtns);
     }
   });
 };
@@ -48,6 +58,34 @@ const editTask = (container) => {
   });
 };
 
+// Check if task is comleted
+const checkTask = (container) => {
+  container.addEventListener('change', (e) => {
+    const check = e.target;
+    if (check.getAttribute('type') === 'checkbox') {
+      const checkBool = check.checked;
+      const task = check.parentElement.parentElement;
+      const taskDes = task.querySelector('.task-description');
+      Check.task(task, checkBool, taskDes);
+    }
+  });
+};
+
+// Check if task is comleted
+const clearTask = (container, btn) => {
+  btn.addEventListener('click', () => {
+    const checkedTasks = container.getElementsByClassName('checked-item');
+    [...checkedTasks].forEach((task) => {
+      Delete.task(task);
+    });
+    // Update tasks Indexes
+    const tasks = document.getElementsByClassName('list_todo-item');
+    const toolBtns = container.getElementsByClassName('delete-btn');
+    Delete.updateIndexes(tasks);
+    Delete.updateIndexes(toolBtns);
+  });
+};
+
 const loadTasks = (container) => {
   // when page loaded add tasks to UI.
   document.addEventListener('DOMContentLoaded', () => {
@@ -56,5 +94,5 @@ const loadTasks = (container) => {
 };
 
 export {
-  createTask, deleteTask, editTask, loadTasks,
+  createTask, deleteTask, editTask, checkTask, clearTask, loadTasks,
 };
