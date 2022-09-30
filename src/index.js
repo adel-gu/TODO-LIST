@@ -10,3 +10,4 @@ base.createTask(taskInput, todoList, form);
 base.deleteTask(todoList);
 base.editTask(todoList);
 base.loadTasks(todoList);
+base.checkTask(todoList);

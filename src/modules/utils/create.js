@@ -18,13 +18,13 @@ export default class Create {
       <div class="flex align-center grow-2">
         <input type="checkbox" name="check" id="check" ${Create.#checkedtask(
           task.completed
-        )} />
+        )} data-index="${task.index}"/>
         <div class="pos-r w-100">
           <input type="text" 
             value="${task.description}" 
             class="task-description 
                   ${Create.#checkedtask(task.completed)} 
-                  w-100 p shine" contenteditable="true" 
+                  w-100 p" contenteditable="true" 
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Create from './utils/create';
 import Delete from './utils/delete';
 import Edit from './utils/edit';
+import Check from './utils/check';
 
 // Clear flieds
 const formClear = (task) => {
@@ -57,6 +58,17 @@ const editTask = (container) => {
   });
 };
 
+// Check if task is comleted
+const checkTask = (container) => {
+  container.addEventListener('change', (e) => {
+    const check = e.target;
+    const checkBool = check.checked;
+    const task = check.parentElement.parentElement;
+    const taskDes = task.querySelector('.task-description');
+    Check.task(task, checkBool, taskDes);
+  });
+};
+
 const loadTasks = (container) => {
   // when page loaded add tasks to UI.
   document.addEventListener('DOMContentLoaded', () => {
@@ -64,4 +76,4 @@ const loadTasks = (container) => {
   });
 };
 
-export { createTask, deleteTask, editTask, loadTasks };
+export { createTask, deleteTask, editTask, checkTask, loadTasks };

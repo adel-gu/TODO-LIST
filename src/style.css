@@ -93,6 +93,7 @@ ul {
 
 .checked {
   text-decoration: line-through;
+  color: #b9b9b9;
 }
 
 .bg {
