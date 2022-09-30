@@ -26,6 +26,13 @@ const deleteTask = (container) => {
         `li[data-index= "${deleteBtn.getAttribute('data-index')}"]`
       );
       Delete.task(task);
+
+      // Get the rest task Index's
+      const tasks = document.getElementsByClassName('list_todo-item');
+      const toolBtns = document.getElementsByClassName('delete-btn');
+
+      Delete.updateIndexes(tasks);
+      Delete.updateIndexes(toolBtns);
     }
   });
 };
