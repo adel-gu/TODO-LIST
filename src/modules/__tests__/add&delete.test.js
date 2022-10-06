@@ -29,7 +29,6 @@ describe('Test Task', () => {
       Create.task(taskDescription, todoList);
       const taskItem = todoList.querySelector('li');
 
-      // Second Act
       Delete.task(taskItem);
       const taskItemDeleted = todoList.querySelector('li');
 
