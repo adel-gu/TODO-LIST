@@ -36,9 +36,9 @@ describe('Test Task', () => {
   });
   // arguments : task(li)/ check(true or false)/ taskDes(input)
   describe('Updating', () => {
-    test(`completed status to true the task container should have "checked-item" class and the task input should have "checked" class`, () => {
+    test('completed status to true the task container should have "checked-item" class and the task input should have "checked" class', () => {
       // Arrange
-      let check = true;
+      const check = true;
       document.body.innerHTML = `
       <li data-index="1">
         <input value="Take a walk!"/>
@@ -55,9 +55,9 @@ describe('Test Task', () => {
       expect(TaskDescription.classList).toContain('checked');
     });
 
-    test(`completed property for task object should be true`, () => {
+    test('completed property for task object should be true', () => {
       // Arrange
-      let check = true;
+      const check = true;
       // Arrange
       const { task, newTaskDescription, washDishesTask } = mockEditTask();
 
@@ -71,11 +71,10 @@ describe('Test Task', () => {
     });
   });
 
-  
-describe('clear completed', () => {
-  test('Tasks from UI', () => {
+  describe('clear completed', () => {
+    test('Tasks from UI', () => {
     // Arrange
-    document.body.innerHTML = `
+      document.body.innerHTML = `
       <ul class="container">
         <li class="list_todo-item checked-item" data-index="1">
           <button class="delete-btn" data-index="1"></button>
@@ -86,24 +85,24 @@ describe('clear completed', () => {
       </ul>
     `;
 
-    const deletBtn = document.querySelector('.delete-btn');
-    const container = document.querySelector('.container');
+      const deletBtn = document.querySelector('.delete-btn');
+      const container = document.querySelector('.container');
 
-    // Act
-    clearTask(container, deletBtn);
-    deletBtn.click();
+      // Act
+      clearTask(container, deletBtn);
+      deletBtn.click();
 
-    const taskItems = document.querySelectorAll('.list_todo-item');
+      const taskItems = document.querySelectorAll('.list_todo-item');
 
-    // Assert
-    expect(taskItems).toHaveLength(1);
+      // Assert
+      expect(taskItems).toHaveLength(1);
+    });
   });
-});
 
-describe('clear completed', () => {
-  test('Tasks from LocalStorage', () => {
+  describe('clear completed', () => {
+    test('Tasks from LocalStorage', () => {
     // Arrange
-    document.body.innerHTML = `
+      document.body.innerHTML = `
       <ul class="container">
         <li class="list_todo-item checked-item" data-index="1">
           <button class="delete-btn" data-index="1"></button>
@@ -114,30 +113,30 @@ describe('clear completed', () => {
       </ul>
     `;
 
-    const deletBtn = document.querySelector('.delete-btn');
-    const container = document.querySelector('.container');
-    const tasks = [
-      {
-        description: 'Wash the dishes',
-        completed: false,
-        index: 1,
-      },
-      {
-        description: 'Take a walk!',
-        completed: false,
-        index: 2,
-      },
-    ];
+      const deletBtn = document.querySelector('.delete-btn');
+      const container = document.querySelector('.container');
+      const tasks = [
+        {
+          description: 'Wash the dishes',
+          completed: false,
+          index: 1,
+        },
+        {
+          description: 'Take a walk!',
+          completed: false,
+          index: 2,
+        },
+      ];
 
-    // Act
-    localStorage.setItem('Tasks', JSON.stringify(tasks));
-    clearTask(container, deletBtn);
-    deletBtn.click();
-    const taskItems = JSON.parse(localStorage.getItem('Tasks'));
+      // Act
+      localStorage.setItem('Tasks', JSON.stringify(tasks));
+      clearTask(container, deletBtn);
+      deletBtn.click();
+      const taskItems = JSON.parse(localStorage.getItem('Tasks'));
 
-    // Assert
-    expect(taskItems).toHaveLength(1);
-    expect(taskItems[0].index).toBe(1);
+      // Assert
+      expect(taskItems).toHaveLength(1);
+      expect(taskItems[0].index).toBe(1);
+    });
   });
-});
 });
